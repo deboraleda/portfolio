@@ -292,6 +292,42 @@
   stroke-dasharray: 3 5;
 }
 
+/* ---------------------------------------------------------
+   AUTHOR INTRO (Débora Lêda block below "follow my journey")
+--------------------------------------------------------- */
+
+.journey-hero {
+  text-align: center;
+  color: #4d4740;
+  font-family: inherit; /* Inter — same as SharedGarden note */
+  line-height: 1.5;
+}
+
+.journey-hero__name {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.journey-hero__title {
+  font-size: 7px;
+  font-style: italic;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(77, 71, 64, 0.65);
+  margin-bottom: 8px;
+}
+
+.journey-hero__bio {
+  font-size: 8px;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(77, 71, 64, 0.7);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
 .visitor {
   animation: garden-drift 4s ease-in-out infinite;
   transform-box: fill-box;

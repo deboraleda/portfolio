@@ -21,7 +21,7 @@ const VIEWBOX_WIDTH = 1200;
  */
 const CENTER_X = 600;
 const PATH_AMPLITUDE = 62;      // horizontal swing to each side
-const TOP_MARGIN = 200;          // path start Y
+const TOP_MARGIN = 230;          // path start Y
 const BOTTOM_MARGIN = 300;       // room after the last milestone
 const MILESTONE_SPACING = 400;   // vertical distance per event
 
@@ -408,9 +408,33 @@ export function Garden({
           height={VIEWBOX_HEIGHT}
           className="garden-background"
         />
+        {/* ==================================================
+            AUTHOR INTRO
+        ================================================== */}
+
+        <foreignObject
+          x={400}
+          y={40}
+          width={400}
+          height={100}
+        >
+          <div className="journey-hero">
+            <div className="journey-hero__name">Débora Lêda</div>
+            <div className="journey-hero__title">Computer Scientist &amp; Researcher</div>
+            <p className="journey-hero__bio">
+              I study software engineering, artificial intelligence,
+              and how AI agents behave in practice.
+            </p>
+          </div>
+        </foreignObject>
+
+        {/* ==================================================
+            JOURNEY INVITATION
+        ================================================== */}
+
         <text
           x="600"
-          y="75"
+          y="170"
           textAnchor="middle"
           className="journey-intro"
         >
@@ -418,7 +442,7 @@ export function Garden({
         </text>
 
         <path
-          d="M470 100 C520 110 680 110 730 100"
+          d="M470 190 C520 200 680 200 730 190"
           className="journey-intro-decoration"
         />
 
