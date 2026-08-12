@@ -16,7 +16,7 @@ const PROJECTS: Project[] = [
     year: '2025',
     title: 'Yuma — Multi-Agent Workflow Generator',
     description:
-      'Automatic generation of multi-agent workflows from natural language, built at Agents4Good (Kunumi × UFCG). Awarded best paper on the WebMedia 2025 tools track.',
+      'Automatic generation of multi-agent workflows from natural language, built at Agents4Good (Kunumi × UFCG).',
     tags: ['Python', 'LLMs', 'Multi-Agent', 'Research'],
   },
   {
