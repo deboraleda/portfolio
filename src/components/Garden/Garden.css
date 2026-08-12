@@ -2,6 +2,8 @@
   width: 100%;
   overflow: hidden;
   background: #f8f6f0;
+  /* Clear the fixed nav bar (52px) plus breathing room */
+  padding-top: 80px;
 }
 
 .garden-svg {
