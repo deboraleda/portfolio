@@ -368,8 +368,10 @@ export function Garden({
 
   const pathProgress = Math.min(scrollProgress / 0.94, 1);
 
-  let insectX = 600;
-  let insectY = 180;
+  // Defaults match the path's starting point so the ladybug sits ON
+  // the path from the very first render (before pathRef is populated).
+  let insectX = CENTER_X;
+  let insectY = TOP_MARGIN;
 
   if (pathRef.current) {
     const pathLength =
