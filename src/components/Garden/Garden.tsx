@@ -422,7 +422,7 @@ export function Garden({
 
         <foreignObject
           x={400}
-          y={40}
+          y={20}
           width={400}
           height={100}
         >
