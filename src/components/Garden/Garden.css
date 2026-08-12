@@ -1,0 +1,437 @@
+.garden {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f6f0;
+}
+
+.garden-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.garden-background {
+  fill: #f8f6f0;
+}
+
+/* =========================================================
+   FINE LINE
+========================================================= */
+
+.garden-ink {
+  fill: none;
+  stroke: #4d4740;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.plant-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.plant-thin {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.grass-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+  stroke-linecap: round;
+}
+
+.flower-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+}
+
+.rock-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.rock-thin {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.4;
+}
+
+/* =========================================================
+   JOURNEY PATH
+========================================================= */
+
+.journey-path {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+.event-marker {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.7;
+}
+
+.event-marker-dot {
+  fill: #4d4740;
+}
+
+.event-connector {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+  stroke-dasharray: 2 5;
+  opacity: 0.65;
+}
+
+.event-number {
+  fill: #4d4740;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+
+.event-title {
+  fill: #4d4740;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.event-year {
+  fill: #4d4740;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+.event-description {
+  width: 190px;
+
+  color: #4d4740;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  line-height: 1.55;
+
+  text-align: left;
+}
+
+.event-description--left {
+  text-align: right;
+}
+
+/* =========================================================
+   LADYBUG
+========================================================= */
+
+.ladybug {
+  fill: none;
+  stroke: #4d4740;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bug-body {
+  fill: #f8f6f0;
+  stroke: #4d4740;
+  stroke-width: 0.8;
+}
+
+.bug-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+  stroke-linecap: round;
+}
+
+.bug-dot {
+  fill: #4d4740;
+  stroke: none;
+}
+
+.journey-visitor {
+  transform-origin: center;
+  animation: tiny-insect-motion 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes tiny-insect-motion {
+  from {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   BUTTERFLIES
+========================================================= */
+
+.butterfly {
+  fill: none;
+  stroke: #4d4740;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  animation: butterfly-float 4s ease-in-out infinite alternate;
+}
+
+.butterfly-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.6;
+  stroke-linecap: round;
+}
+
+@keyframes butterfly-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================================================
+   FINAL GROUND
+========================================================= */
+
+.ground-fill {
+  fill: #f8f6f0;
+  stroke: #4d4740;
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+}
+
+.ground-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.55;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.ground-line-light {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.4;
+  stroke-dasharray: 2 7;
+  stroke-linecap: round;
+  opacity: 0.3;
+}
+
+/* =========================================================
+   VISITOR MESSAGE
+========================================================= */
+
+.visitor-message {
+  fill: #4d4740;
+
+  font-family: "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.visitor-decoration {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.5;
+  stroke-dasharray: 2 5;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-visitor,
+  .butterfly {
+    animation: none;
+  }
+}
+
+.journey-intro {
+  font-family: Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+  fill: #3f4635;
+  letter-spacing: 0.5px;
+}
+
+.journey-intro-decoration {
+  fill: none;
+  stroke: #7d866f;
+  stroke-width: 0.3;
+  stroke-dasharray: 3 5;
+}
+
+.visitor {
+  animation: garden-drift 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.visitor-0 {
+  animation-delay: 0s;
+}
+
+.visitor-1 {
+  animation-delay: -1.2s;
+}
+
+.visitor-2 {
+  animation-delay: -2.4s;
+}
+
+.visitor-3 {
+  animation-delay: -3.2s;
+}
+
+@keyframes garden-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(5px, -4px);
+  }
+}
+
+.butterfly {
+  animation: butterfly-float 3.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes butterfly-float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translate(7px, -6px) rotate(2deg);
+  }
+}
+
+.bird {
+  animation: bird-float 5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes bird-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(8px, -3px);
+  }
+}
+
+.bird-line {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+/* ---------------------------------------------------------
+   MILESTONE ILLUSTRATION SLOT
+--------------------------------------------------------- */
+
+.milestone-illustration-slot {
+  overflow: visible;
+}
+
+.milestone-illustration-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+
+.milestone-illustration-slot--active .milestone-illustration-wrap {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   AMBIENT BUTTERFLIES
+--------------------------------------------------------- */
+
+.ambient-butterfly-wing,
+.ambient-butterfly-body {
+  fill: none;
+  stroke: #4d4740;
+  stroke-width: 0.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.6;
+}
+
+.ambient-butterfly-drift {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ambient-butterfly-drift 9s ease-in-out infinite alternate;
+}
+
+.ambient-butterfly-flap {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ambient-butterfly-flap 0.32s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-butterfly-drift {
+  0%   { transform: translate(0, 0) rotate(-3deg); }
+  50%  { transform: translate(18px, -14px) rotate(4deg); }
+  100% { transform: translate(-10px, 10px) rotate(-2deg); }
+}
+
+@keyframes ambient-butterfly-flap {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.55); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-visitor-bob,
+  .visitor-motion,
+  .butterfly,
+  .bird,
+  .ambient-butterfly-drift,
+  .ambient-butterfly-flap {
+    animation: none;
+  }
+}

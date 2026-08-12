@@ -1,0 +1,62 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #2c2c2c;
+  --ink-faint: rgba(44, 44, 44, 0.15);
+  --paper: #f8f6f1;
+  --nav-height: 52px;
+  --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Journey scroll driver */
+.scene-wrapper {
+  position: relative;
+}
+
+.scroll-driver {
+  height: 600vh;
+  pointer-events: none;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .journey-visitor-bob,                                                                                                                       
+    .arrival-ladybug,                                       
+    .shared-garden__arrival-fall {
+      animation: none !important;
+    }                                                                                                                                           
+  }

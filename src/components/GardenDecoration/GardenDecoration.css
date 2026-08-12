@@ -1,0 +1,32 @@
+.garden-deco {
+  top: 20px;
+  pointer-events: none;
+  position: relative;
+}
+
+.garden-deco__ground {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+}
+
+.garden-deco__corner {
+  position: fixed;
+  top: 52px; /* below nav */
+  width: 100px;
+  height: 120px;
+  opacity: 1;
+}
+
+.garden-deco__corner--tl {
+  left: 0;
+}
+
+.garden-deco__corner--tr {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .garden-deco__corner { display: none; }
+}

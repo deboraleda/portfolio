@@ -1,0 +1,249 @@
+.shared-garden {
+  position: relative;
+
+  background: #f8f6f1;
+
+  padding: 2.2rem 2rem 3rem;
+
+  border-top: 1px solid rgba(44, 44, 44, 0.1);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.shared-garden__header {
+  position: relative;
+
+  text-align: center;
+
+  margin-bottom: 1.8rem;
+}
+
+.shared-garden__count {
+  margin: 0;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: rgba(44, 44, 44, 0.5);
+}
+
+.shared-garden__count-number {
+  display: block;
+
+  margin-bottom: 0.4rem;
+
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+
+  color: #2c2c2c;
+}
+
+/* =========================================================
+   GARDEN SCENE
+========================================================= */
+
+.shared-garden__scene {
+  position: relative;
+
+  width: 100%;
+  max-width: 1200px;
+
+  height: 380px;
+  min-height: 380px;
+
+  margin: 0 auto;
+
+  /*
+   * IMPORTANT:
+   * Do not create a z-index/stacking context here.
+   * The ladybug needs to be able to visually pass
+   * above elements outside the scene.
+   */
+  overflow: visible;
+}
+
+/* =========================================================
+   BOTANICAL BACKGROUND
+========================================================= */
+
+.shared-garden__bg {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 380px;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   EXISTING CREATURES
+========================================================= */
+
+.shared-garden__canvas {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   ARRIVING LADYBUG
+========================================================= */
+
+.shared-garden__arrival {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  /*
+   * The left/top coordinates represent the center
+   * of the ladybug.
+   */
+  margin-left: -29px;
+  margin-top: -29px;
+
+  /*
+   * This is intentionally higher than the garden
+   * background and canvas.
+   */
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   ARRIVAL CONTAINER
+========================================================= */
+
+.shared-garden__arrival-fall {
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  overflow: visible;
+  z-index: 1000;
+}
+
+/* =========================================================
+   LADYBUG
+========================================================= */
+
+.arrival-ladybug {
+  display: block;
+
+  width: 58px;
+  height: 58px;
+
+  overflow: visible;
+
+  transform-box: fill-box;
+  transform-origin: center center;
+
+  animation-name: ladybug-wobble;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* =========================================================
+   LADYBUG ANIMATION
+========================================================= */
+
+.arrival-ladybug{
+  position: relative;
+  z-index: 1000;
+}
+
+@keyframes ladybug-fall {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(200px);
+  }
+}
+
+@keyframes ladybug-wobble {
+  0% {
+    transform: rotate(-8deg);
+  }
+
+  25% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(-4deg);
+  }
+
+  75% {
+    transform: rotate(4deg);
+  }
+
+  100% {
+    transform: rotate(-8deg);
+  }
+}
+
+/* =========================================================
+   LADYBUG DRAWING
+========================================================= */
+
+.arrival-bug-body {
+  fill: #f8f6f1;
+
+  stroke: #292823;
+  stroke-width: 0.8;
+}
+
+.arrival-bug-line {
+  fill: none;
+
+  stroke: #292823;
+  stroke-width: 0.55;
+
+  stroke-linecap: round;
+}
+
+.arrival-bug-dot {
+  fill: #292823;
+
+  stroke: none;
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.shared-garden__note {
+  margin: 1.5rem 0 0;
+
+  text-align: center;
+
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+
+  color: rgba(44, 44, 44, 0.35);
+}
