@@ -203,28 +203,34 @@ function Milestone({
   const lineX1 = left ? 430 : 770;
   const lineX2 = left ? 540 : 660;
 
+  /*
+   * Text block layout — all offsets are relative to this frame.
+   * Change TEXT_OFFSET_Y to shift the whole block up/down and the
+   * marker follows automatically.
+   */
+  const TEXT_OFFSET_Y = -50;
+  const DESCRIPTION_TOP = TEXT_OFFSET_Y + 45;
+  const markerTop = TEXT_OFFSET_Y - 28;
+  const markerBottom = DESCRIPTION_TOP + (descHeight ?? 100) + 6;
+
   return (
     <g transform={`translate(0 ${y})`}>
-      {/* vertical event marker */}
+      {/* vertical event marker — spans the full text block */}
       <path
-        d={
-          left
-            ? `M${lineX1} -72 L${lineX1} 72`
-            : `M${lineX1} -72 L${lineX1} 72`
-        }
+        d={`M${lineX1} ${markerTop} L${lineX1} ${markerBottom}`}
         className="event-marker"
       />
 
       <circle
         cx={lineX1}
-        cy="-72"
+        cy={markerTop}
         r="2.5"
         className="event-marker-dot"
       />
 
       <circle
         cx={lineX1}
-        cy="72"
+        cy={markerBottom}
         r="2.5"
         className="event-marker-dot"
       />
@@ -236,7 +242,7 @@ function Milestone({
       />
 
       <g
-        transform={`translate(${textX} 0)`}
+        transform={`translate(${textX} ${TEXT_OFFSET_Y})`}
         textAnchor={left ? "end" : "start"}
       >
         <text
