@@ -152,7 +152,6 @@ export const SharedGarden: React.FC<SharedGardenProps> = ({
   visitorCount,
   visible,
   hasArrived,
-  arrivalStart,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number | null>(null);
