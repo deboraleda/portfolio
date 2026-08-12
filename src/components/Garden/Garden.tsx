@@ -314,7 +314,6 @@ export function Garden({
   const [arrivalStart, setArrivalStart] = useState<{ left: number; top: number } | null>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [hasArrived, setHasArrived] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -368,6 +367,14 @@ export function Garden({
 
   const pathProgress = Math.min(scrollProgress / 0.94, 1);
 
+  /*
+   * Derived from scroll: as soon as the user leaves the end of the
+   * path (scrolls back up), hasArrived flips false and the arrival
+   * ladybug unmounts from the SharedGarden — reappearing on the trail.
+   * Coming back down remounts it, restarting the fall animation.
+   */
+  const hasArrived = pathProgress >= 1;
+
   // Defaults match the path's starting point so the ladybug sits ON
   // the path from the very first render (before pathRef is populated).
   let insectX = CENTER_X;
@@ -387,9 +394,7 @@ export function Garden({
   }
 
   useEffect(() => {
-    if (!hasArrived && pathProgress >= 1) {
-      console.log("arrived at the end of the path");
-
+    if (pathProgress >= 1) {
       // compute screen position of the insect from svg coordinates
       if (svgRef.current) {
         const svgRect = svgRef.current.getBoundingClientRect();
@@ -397,10 +402,10 @@ export function Garden({
         const top = svgRect.top + (insectY / VIEWBOX_HEIGHT) * svgRect.height;
         setArrivalStart({ left, top });
       }
-
-      setHasArrived(true);
+    } else {
+      setArrivalStart(null);
     }
-  }, [pathProgress, hasArrived]);
+  }, [pathProgress, insectX, insectY]);
 
   return (
     <section className="garden">
