@@ -19,9 +19,8 @@ export interface VisitorService {
 const COUNTER_URL =
   'https://api.counterapi.dev/v2/debora-portfolio/debora-portfolio';
 
-// Session guards
+// Session identity — used to seed the visitor's own creature.
 const SESSION_KEY = 'garden_session_id';
-const REGISTERED_KEY = 'garden_registered';
 
 function getOrCreateSessionId(): string {
   let id = sessionStorage.getItem(SESSION_KEY);
@@ -79,8 +78,19 @@ function parseCount(payload: unknown): number {
   );
 }
 
+/*
+ * counterapi.dev sits behind Cloudflare with `cache-control: max-age=14400`
+ * (4h) — including the /up endpoint. Without a cache-buster, the browser
+ * (and the CDN) returns a stale response and the API is never hit again.
+ * A unique query param per call makes each URL unique so the CDN forwards.
+ */
+function bust(url: string): string {
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}t=${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+}
+
 async function fetchCount(url: string): Promise<number> {
-  const response = await fetch(url);
+  const response = await fetch(bust(url), { cache: 'no-store' });
   if (!response.ok) {
     throw new Error(`Counter API error: ${response.status}`);
   }
@@ -109,20 +119,11 @@ export function createCounterApiVisitorService(): VisitorService {
 
     async registerVisitor() {
       const sessionId = getOrCreateSessionId();
-      const alreadyRegistered =
-        sessionStorage.getItem(REGISTERED_KEY) === '1';
 
-      if (!alreadyRegistered) {
-        /*
-         * Set the flag BEFORE the network call so React StrictMode's
-         * double-invoke in dev doesn't double-increment the counter.
-         */
-        sessionStorage.setItem(REGISTERED_KEY, '1');
-        try {
-          await incrementVisitorCount();
-        } catch (err) {
-          console.warn('[visitorService] increment failed', err);
-        }
+      try {
+        await incrementVisitorCount();
+      } catch (err) {
+        console.warn('[visitorService] increment failed', err);
       }
 
       const type = CREATURE_TYPES[
